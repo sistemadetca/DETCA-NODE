@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ingresar</title>
+    <link rel="stylesheet" type="text/css" href="/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <% if (success) { %>
+            
+            <div><%= success %></div>
+            
+            <% } %>
+            
+            <!-- <% if (message) { %>
+            
+            <div><%= message %></div>
+            
+            <% } %> -->
+            
+            <% if (alert) { %>
+            
+            <div><%= alert %></div>
+            
+            <% } %>
+
+            <% if (message) { %>
+            <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+            <form action="/signin" method="POST">
+                <h1>Ingresar</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="social"><i class="fa fa-google"></i></a>
+                    <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+                </div>
+                <span>Usa tu cuenta</span>
+                <input type="email" name="username" placeholder="Correo">
+                <input type="password" name="password" placeholder="Contraseña">
+
+                <button><a href="">Aceptar</button></a>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienvenido!</h1>
+                    <p>Para permanecer atento a todas las actualizaciones debes estar logeado</p>
+                    <button class="ghost" id="signIn">Ingresar</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Bienvenido Instructor</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

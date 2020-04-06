@@ -1,0 +1,37 @@
+{
+  "name": "detca-js-backup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "ejs-mate": "^3.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.0",
+    "express-messages": "^1.0.1",
+    "express-mysql-session": "^2.1.4",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.4.0",
+    "helmet": "^3.22.0",
+    "mongoose": "^5.9.5",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "serialport": "^8.0.7",
+    "socket.io": "^2.3.0",
+    "timeago.js": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
