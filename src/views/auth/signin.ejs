@@ -1,3 +1,4 @@
+<%- layout("layouts/main.ejs")%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
             
             <% } %>
 
-            <% if (message) { %>
+            <% if (message.length > 0) { %>
             <div class="alert alert-danger"><%= message %></div>
             <% } %>
             <form action="/signin" method="POST">

@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container p-4">
-        <div class="row">
-            <div class="col-md-4 mx-auto">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h3>Bienvenido</h3>
-                    </div>
+<%- layout("layouts/main.ejs")%>
+<nav class="navbar navbar-light bg-success">
+    <a class="navbar-brand" href="#">
+        Sistema Detca
+    </a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a href="/logout" class="nav-link">Cerrar sesion</a></li>
+    </ul>
+    </li>
+</nav>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>Bienvenido <%= user.fullname %></h3>
+                    <!-- <h4><%= user.username %></h4> -->
+                    <a href="/chart" class="btn btn-success m-4">Graficos</a>
                 </div>
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+</div>
+<!-- </body>
+</html> -->

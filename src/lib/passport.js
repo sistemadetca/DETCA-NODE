@@ -30,17 +30,22 @@ passport.use("local.signup", new LocalStrategy({ //Metodo para el registro del l
     passwordField: "password",//La constraseña ingresada por el ususario
     passReqToCallback: true //Se ingresa una espera para que el servidor la procese
 }, async (req, username, password, done) => { //Cuando se ingrese los campos que se envie 
-        const { fullname } = req.body;  
-        let newUser = {//Creando un nuevo usuario y se almacena en la DB
-            fullname,
-            username,
-            password
+        const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+        if (rows.length) {//filas 
+            return done(null, false, req.flash('messageRegistro', 'Correo ya registrado'));//mensaje en pantalla
+        } else {//
+            const { fullname } = req.body;
+            const newUser = {//Creando un nuevo usuario y se almacena en la DB
+                fullname,
+                username,
+                password
             
-        };
-        newUser.password = await helpers.encryptPassword(password);//se descifre la contraseña nueva de un nuevo usuario
-        const result = await pool.query("INSERT INTO users SET ? ",  newUser);//Se guarda la constraseña en la BD 
-        newUser.id = result.insertId;
-        return done(null, newUser);//Para que se alamacene en una nueva fila
+            };
+            newUser.password = await helpers.encryptPassword(password);//se descifre la contraseña nueva de un nuevo usuario
+            const result = await pool.query("INSERT INTO users SET ? ", newUser);//Se guarda la constraseña en la BD 
+            newUser.id = result.insertId;
+            return done(null, newUser);//Para que se alamacene en una nueva fila
+        }
 }));
 
 

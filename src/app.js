@@ -3,7 +3,7 @@ const morgan = require("morgan"); //Modulo para mensajes especificos
 const exphbs = require("express-handlebars");//Plantilla de vistas
 const socketIo = require("socket.io");//Llamando desde la biblioteca websockets
 const http = require("http");//modulos de http
-const flash = require("connect-flash");//Modulos para losmensajes
+const flash = require("connect-flash");//Modulos para los mensajes
 const session = require("express-session");//Se guarde las sessiones en el server
 const MySQLStore = require("express-mysql-session")//(session);
 const passport = require("passport"); //Modulo para autenticar ususarios
@@ -85,7 +85,8 @@ app.use(passport.session());
 app.use((req, res, next) => { // Mensajes para el ussario en el login 
     app.locals.success = req.flash("success"); //Correcto login
     app.locals.message = req.flash("message"); //Contraseña incorrecta
-    app.locals.alert = req.flash("alert"); //Correro no exite
+    app.locals.alert = req.flash("alert"); //Correro no exite messageRegistro
+    app.locals.messageRegistro = req.flash("messageRegistro");
     app.locals.user = req.user;
     //console.log(app.locals);
     next();
