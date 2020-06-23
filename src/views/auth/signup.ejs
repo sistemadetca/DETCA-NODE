@@ -5,6 +5,7 @@
 <head>
     <title>Crear cuenta</title>
     <link rel="stylesheet" type="text/css" href="/login.css">
+    <script src="/js/validar.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -18,20 +19,20 @@
                 <% if (success.length > 0) { %>
                 <div class="alert-danger"><%= success %></div>
                 <% } %>
-            
-        <form action="/signup" method="POST">
+            <a href="/" class=""><i class="fas fa-home"></i></a>
+        <form action="/signup" method="POST" onsubmit="return validar();">
             <h1>Crear Cuenta</h1>
             <!-- <div class="social-container">
                 <a href="#" class="social"><i class="fa fa-facebook"></i></a>
                 <a href="#" class="social"><i class="fa fa-google"></i></a>
                 <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
             </div> -->
-            <!-- <span>Usa tu correo para registrarse</span> -->
-            <input type="text" name="nombre" placeholder="Nombres">
-            <input type="text" name="apellido" placeholder="Apellidos">
-            <input type="text" name="telefono" placeholder="Telefono">
-            <input type="email" name="correo" placeholder="Correo">
-            <input type="password" name="contraseña_us" placeholder="Contraseña">
+            
+            <input type="text" id="Nombre" name="nombre" placeholder="Nombres" >
+            <input type="text" id="Apellido" name="apellido" placeholder="Apellidos" >
+            <input type="text" id="Telefono" name="telefono" placeholder="Telefono" >
+            <input type="email" id="Correo" name="correo" placeholder="Correo" >
+            <input type="password" id="Contraseña" name="contraseña_us" placeholder="Contraseña">
             <button>Aceptar</button>
         </form>
         </div>
@@ -48,7 +49,8 @@
             </div>
         </div>
     </div>
-</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+</body>
 </html>
 

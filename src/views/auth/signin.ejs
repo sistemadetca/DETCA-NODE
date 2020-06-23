@@ -31,6 +31,7 @@
             <% if (message.length > 0) { %>
             <div class="alert alert-danger"><%= message %></div>
             <% } %>
+            <a href="/" class=""><i class="fas fa-home"></i></a>
             <form action="/signin" method="POST">
                 <h1>Ingresar</h1>
                 <!-- <div class="social-container">
@@ -38,9 +39,10 @@
                     <a href="#" class="social"><i class="fa fa-google"></i></a>
                     <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
                 </div> -->
+                
                 <input type="email" name="correo" placeholder="Correo">
                 <input type="password" name="contraseña_us" placeholder="Contraseña">
-
+                <a href="/signup">No tienes Cuenta? Registrarse</a></li>
                 <button><a href="">Aceptar</button></a>
             </form>
         </div>
