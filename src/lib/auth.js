@@ -5,12 +5,13 @@ module.exports = {
             return next(); //Continue
         }//sino
         return res.redirect("/signin");//Me redireciona a la vista de inicio de sesion            
-    },
-
-    isNotLoggedin(req,res,next) {//Efecto inverso cuando el usuario este logeado
-        if (!req.isAuthenticated()) {
-            return next();
-        }
-        return res.redirect("/profile");
     }
+
+//     isNotLoggedin(req,res,next) {//Efecto inverso cuando el usuario este logeado
+//         if (!req.isAuthenticated()) {
+//             return next();
+//         }
+//         return res.redirect("/profile");
+//     }
+    //
 };

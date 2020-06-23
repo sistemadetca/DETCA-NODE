@@ -15,18 +15,23 @@
                 <% if (messageRegistro.length > 0) { %>
                 <div class="alert-danger"><%= messageRegistro %></div>
                 <% } %>
+                <% if (success.length > 0) { %>
+                <div class="alert-danger"><%= success %></div>
+                <% } %>
             
         <form action="/signup" method="POST">
             <h1>Crear Cuenta</h1>
-            <div class="social-container">
+            <!-- <div class="social-container">
                 <a href="#" class="social"><i class="fa fa-facebook"></i></a>
                 <a href="#" class="social"><i class="fa fa-google"></i></a>
                 <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
-            </div>
-            <span>Usa tu correo para registrarse</span>
-            <input type="text" name="fullname" placeholder="Nombre Completo">
-            <input type="email" name="username" placeholder="Correo">
-            <input type="password" name="password" placeholder="Contraseña">
+            </div> -->
+            <!-- <span>Usa tu correo para registrarse</span> -->
+            <input type="text" name="nombre" placeholder="Nombres">
+            <input type="text" name="apellido" placeholder="Apellidos">
+            <input type="text" name="telefono" placeholder="Telefono">
+            <input type="email" name="correo" placeholder="Correo">
+            <input type="password" name="contraseña_us" placeholder="Contraseña">
             <button>Aceptar</button>
         </form>
         </div>

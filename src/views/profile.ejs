@@ -1,5 +1,98 @@
-<%- layout("layouts/main.ejs")%>
-<nav class="navbar navbar-light bg-success">
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+
+<body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <div class="left_area">
+            <h3>Sistema <span>Detca</span></h3>
+        </div>
+        <div class="right_area">
+            <a href="/logout" class="logout_btn">Cerrar sesion</a></li>
+        </div>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+        <center>
+            <!-- <img src="1.png" class="profile_image" alt=""> -->
+            <h3>Bienvenido <br> <%= user.nombre %> <%= user.apellido %></h3> 
+            <!-- <h4><%= user.username %></h4>  -->
+        </center>
+        <a href="chart"><i class="fas fa-desktop"></i><span>Grafico</span></a>
+
+        <!-- <a href="#"><i class="fas fa-cogs"></i><span>Components</span></a>
+        <a href="#"><i class="fas fa-table"></i><span>Tables</span></a>
+        <a href="#"><i class="fas fa-th"></i><span>Forms</span></a>
+        <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+        <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a> -->
+    </div>
+    <!--sidebar end-->
+
+    <section class="content" style="position: relative; top:11rem; left:0px;">
+        
+        <canvas id='myChart'></canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+        <!--llamando websockets -->
+        <script>
+            const socket = io();
+
+            let counter = 0;
+            socket.on("arduino:data", function (dataSerial) {
+                console.log(dataSerial);
+                myChart.data.labels.push(counter);
+                myChart.data.datasets.forEach(dataset => {
+                    dataset.data.push(dataSerial.value)
+                });
+                counter++;
+                myChart.update();
+            });
+
+            // Graficos en tiempo real libreria chart.js
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, { //Nuevo Grafico
+            
+                type: 'line',
+                data: {
+                    labels: ['Serial'],
+                    datasets: [{
+                        label: 'Serial',
+                        backgroundColor: 'rgb(2,173,94)',
+                        BorderColor: 'rgb(52,73,94)',
+                        data: []
+                    }]
+                },
+                options: {}
+            });
+        </script>
+    </section>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-light bg-success">
     <a class="navbar-brand" href="#">
         Sistema Detca
     </a>
@@ -13,13 +106,13 @@
         <div class="col-md-6 mx-auto">
             <div class="card text-center">
                 <div class="card-body">
-                    <h3>Bienvenido <%= user.fullname %></h3>
+                    <h3>Bienvenido <%= user.fullname %></h3> --> 
                     <!-- <h4><%= user.username %></h4> -->
-                    <a href="/chart" class="btn btn-success m-4">Graficos</a>
+                    <!-- <a href="/chart" class="btn btn-success m-4">Graficos</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- </body>
 </html> -->
